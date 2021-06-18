@@ -5,23 +5,28 @@ import ShowData from "./ShowData";
 const Container = () => {
   const [employeeData, setEmployeeData] = useState([]);
   const [show, setShow] = useState(false);
+  const [text, setText] = useState("");
 
   const addEmployeeData = (data) => {
     setEmployeeData([...employeeData, data]);
   };
   const showData = () => {
-    setShow(!show);
+    if (employeeData.length === 0) {
+      alert("There are no records");
+    } else setShow(!show);
     // <ShowData empDetails={employeeData} />;
     console.log(employeeData);
   };
   return (
-    <div>
+    <div className="topLayer">
       <div className="container">
         <Form addEmp={addEmployeeData} />
-        <button onClick={showData}>{ show && employeeData.length> 0 ? "Hide Data" : "View Data"}</button>
+        <button className="viewBtn" onClick={showData}>{show ? "Hide Data" : "View Data"}</button>
       </div>
-      <div className="container">
-        {show && <ShowData empDetails={employeeData} />}
+      <div className="containerBottom">
+        {show && employeeData.length > 0 && (
+          <ShowData empDetails={employeeData} />
+        )}
       </div>
     </div>
   );

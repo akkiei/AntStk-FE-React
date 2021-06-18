@@ -29,7 +29,6 @@ function downloadCsv(filename = "test", json) {
     }
     return emp;
   });
-
   /* 
         For File Download     
         https://stackoverflow.com/questions/55127865/react-writing-form-data-to-file
@@ -52,22 +51,27 @@ const ShowData = (props) => {
   return (
     <div className="showData">
       {empDetails.map((emp, index) => {
-        const empContactMap = emp?.Contact.map(
-          (con) => con?.type + "-" + con?.number
-        );
+        const empContactMap = emp?.Contact.map((con) => {
+          return (
+            <h5 style={{textAlign: 'center'}}>
+              {`${con?.type} - ${con?.number}`}
+            </h5>
+          );
+        });
         return (
           <div className="eachEmp" key={`${emp}-${index}`}>
             <h3>{`Employee #${index + 1}`}</h3>
             <h4>{`Name: ${"     "} ${emp?.name}`}</h4>
             <h4>{`Designation:${"     "}${emp?.designation}`}</h4>
-            <h4>{`Contact: ${"     "} ${empContactMap?.join()}`}</h4>
+            <h4>{`Contact: ${"     "}`}{empContactMap.map((empCon) => empCon)}</h4>
+            
+            {/* <h4>{`Contact: ${"     "} ${empContactMap?.join()}`}</h4> */}
+
             <h4>{`Skills:${"     "}${
-              Array.isArray(emp.Skill)
+              Array.isArray(emp.Skills)
                 ? emp.Skills.length === 1
                   ? emp?.Skills[0].val
-                  : emp?.Skills?.reduce((acc, curr) => {
-                      return acc.val + "," + curr.val;
-                    })
+                  : emp.Skills.map((skill) => skill.val).join()
                 : ""
             }`}</h4>
             <h4>{`DOB:${"     "}${emp.dob}`}</h4>

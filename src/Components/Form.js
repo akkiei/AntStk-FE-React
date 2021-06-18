@@ -17,7 +17,7 @@ const Form = (props) => {
   };
 
   const addSkills = (e) => {
-    if (skillsArr.length >= 4) return;
+    // if (skillsArr.length >= 4) return;
     const currskillsArr = [...skillsArr];
     currskillsArr.push({ val: "" });
     setSkillsArr(currskillsArr);
@@ -76,6 +76,7 @@ const Form = (props) => {
         Skills: skillsArr,
         dob: dob.value,
       });
+    alert("Employee added successfully!");
     setName("");
     setDesignation("");
     setPhoneArr([{ number: "", type: "primary" }]);
@@ -87,6 +88,7 @@ const Form = (props) => {
       <div className="row">
         <label>Name</label>
         <input
+          pattern="[A-Za-z ]{3,}"
           required
           type="text"
           id="Name"
@@ -99,6 +101,7 @@ const Form = (props) => {
         <label>Designation</label>
         <input
           required
+          pattern="[A-Za-z ]{3,}"
           type="text"
           placeholder="Designation"
           id="Designation"
@@ -108,6 +111,13 @@ const Form = (props) => {
       </div>
       <div className=" row">
         <label>Contact Details</label>
+        <input
+          required
+          type="button"
+          //   className="crossButton"
+          value="+"
+          onClick={() => addPhoneNo()}
+        />
         {phoneArr.map((phn, key) => (
           <div className="" key={`${phn}-${key}`}>
             <select
@@ -153,17 +163,10 @@ const Form = (props) => {
             />
           </div>
         ))}
-
-        <input
-          required
-          type="button"
-          //   className="crossButton"
-          value="+"
-          onClick={() => addPhoneNo()}
-        />
       </div>
       <div className="row">
         <label className=" ">Skills</label>
+        <input type="button" value="+" onClick={addSkills} />
         {skillsArr.map((skill, key) => (
           <div key={`${skill}-${key}`}>
             <input
@@ -184,7 +187,6 @@ const Form = (props) => {
             />
           </div>
         ))}
-        <input type="button" value="+" onClick={addSkills} />
       </div>
       <label className=" row">Date Of Birth</label>
       <input
@@ -192,6 +194,7 @@ const Form = (props) => {
         id="dob"
         value={dob}
         onChange={(e) => setDob(e.target.value)}
+        max={(new Date().toISOString()).split("T")[0]}
       />
       <input className="row" type="submit" value="Submit" />
     </form>
