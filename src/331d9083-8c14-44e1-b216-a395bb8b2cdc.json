@@ -1,0 +1,1 @@
+[{"name":"test1","designation":"designamtion1","Contact":[{"number":"1234567890","type":"primary"}],"Skills":"","dob":""},{"name":"test2","designation":"designamtion2","Contact":[{"number":"1234567890","type":"primary"},{"number":"0987654321","type":"emergency"}],"Skills":"C","dob":""},{"name":"test3","designation":"designamtion3","Contact":[],"Skills":"","dob":""}]

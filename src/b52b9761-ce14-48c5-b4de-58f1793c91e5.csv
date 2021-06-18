@@ -1,0 +1,1 @@
+[{"Name":"test1","Designation":"designamtion","Contact":[{"val":"1234567890","type":"primary"}],"DOB":"2021-06-03","Skills":[{"val":"C"}]},{"Name":"test2","Designation":"designamtion","Contact":[{"val":"0987654321","type":"primary"},{"val":"1234567890","type":"emergency"}],"DOB":"","Skills":[{"val":"Cpp"},{"val":"F"}]}]
