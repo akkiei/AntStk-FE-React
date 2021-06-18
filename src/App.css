@@ -1,10 +1,34 @@
 .app {
-  margin: 5% 10% 0% 35%;
-  width: max-content;
-  height: max-content;
+  margin: 5% 0% 0% 20%;
+  /* height: 70vh; */
 }
 .topLayer {
-  display: inline-block;
+  height: 60vh;
+  width: 900px;
+  /* max-height: 60vFh; */
+  display: inline-flex;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  height: 60vh;
+  overflow-y: auto;
+  width: 50%;
+  border: 1px solid;
+}
+
+.containerBottom {
+  border-radius: 5px;
+  overflow-y: auto;
+  /* padding: 20px; */
+  padding: 20px;
+  width: 50%;
+
+  border: 1px solid;
+  overflow: auto;
+  height: 60vh;
 }
 .eachEmp {
   margin: 1% 1%;
@@ -43,6 +67,7 @@ button {
   min-width: 30px !important;
   height: auto;
   margin-left: 1%;
+  margin-bottom: 1%;
   cursor: pointer;
   /* padding: 0px 0px 0px 0px; */
 }
@@ -58,6 +83,7 @@ label {
 }
 
 input[type="submit"] {
+  position: relative;
   background-color: #4caf50;
   color: white;
   padding: 12px 20px;
@@ -78,21 +104,18 @@ input[type="submit"]:hover {
   /* width: 20% !important; */
 }
 
-.container {
-  border-radius: 5px;
-  background-color: #f2f2f2;
-  padding: 20px;
-  border: 1px solid;
-}
-
-.containerBottom {
-  border-radius: 5px;
-  /* padding: 20px; */
-  /* border: 1px solid; */
-}
-
 .viewBtn {
   margin-top: 5%;
   padding: 3.5% 4%;
   background-color: #d7ebeb;
+}
+.download {
+  background-color: #4caf50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  margin-top: 20%;
+  margin-left: 30%;
+  border-radius: 4px;
+  cursor: pointer;
 }

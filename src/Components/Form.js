@@ -76,7 +76,7 @@ const Form = (props) => {
         Skills: skillsArr,
         dob: dob.value,
       });
-    alert("Employee added successfully!");
+    // alert("Employee added successfully!");
     setName("");
     setDesignation("");
     setPhoneArr([{ number: "", type: "primary" }]);

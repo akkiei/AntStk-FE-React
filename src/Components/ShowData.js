@@ -79,7 +79,7 @@ const ShowData = (props) => {
         );
       })}
       {empDetails?.length > 0 && (
-        <button onClick={(e) => downloadCsv("", empDetails)}>
+        <button className="download" onClick={(e) => downloadCsv("", empDetails)}>
           Download Data
         </button>
       )}

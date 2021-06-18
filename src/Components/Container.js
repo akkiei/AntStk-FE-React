@@ -5,7 +5,6 @@ import ShowData from "./ShowData";
 const Container = () => {
   const [employeeData, setEmployeeData] = useState([]);
   const [show, setShow] = useState(false);
-  const [text, setText] = useState("");
 
   const addEmployeeData = (data) => {
     setEmployeeData([...employeeData, data]);
@@ -24,9 +23,9 @@ const Container = () => {
         <button className="viewBtn" onClick={showData}>{show ? "Hide Data" : "View Data"}</button>
       </div>
       <div className="containerBottom">
-        {show && employeeData.length > 0 && (
+        {show && employeeData.length > 0 ? (
           <ShowData empDetails={employeeData} />
-        )}
+        ) : `There are ${employeeData.length} record(s). Click On View Data to see them.` }
       </div>
     </div>
   );
